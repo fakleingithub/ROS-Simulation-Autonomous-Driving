@@ -1,0 +1,11 @@
+<launch>
+    <arg name="odom_topic" default="/odom"/>
+    <arg name="datapreprocessing_pose_topic" default="/Gazebo/Pose"/>
+    <arg name="datapreprocessing_velocity_topic" default="/Gazebo/velocity"/>
+
+    <node name="gazebo_odom_publisher" pkg="drive_ros_gazebo_control" type="gazebo_publish_odom.py" respawn="false" output="screen">
+        <remap from="odom" to="$(arg odom_topic)"/>
+        <remap from="datapreprocessing_pose" to="$(arg datapreprocessing_pose_topic)"/>
+        <remap from="datapreprocessing_velocity" to="$(arg datapreprocessing_velocity_topic)"/>
+    </node>
+</launch>

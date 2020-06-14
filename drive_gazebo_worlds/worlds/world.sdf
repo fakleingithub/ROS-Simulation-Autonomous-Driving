@@ -1,0 +1,1202 @@
+<sdf version='1.6'><world name='default'>
+    <light name='sun_light' type='directional'>
+      <pose frame=''>0 0 10 0 -0 0</pose>
+      <diffuse>0.5 0.5 0.5 1</diffuse>
+      <specular>0.1 0.1 0.1 1</specular>
+      <direction>0.1 0.1 -0.9</direction>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <cast_shadows>1</cast_shadows>
+    </light>
+    
+    <light name='spot_0' type='spot'>
+      <cast_shadows>true</cast_shadows>
+      <pose frame=''>0 0 0.2 0 0 0</pose>
+      <diffuse>1.0 1.0 1.0 1</diffuse>
+      <specular>1.0 1.0 1.0 1</specular>
+      <direction>0.1 0.1 -0.9</direction>
+      <attenuation>
+        <range>20</range>
+        <constant>0.5</constant>
+        <linear>0.01</linear>
+        <quadratic>0.001</quadratic>
+      </attenuation>
+      <spot>
+        <inner_angle>0.4</inner_angle>
+        <outer_angle>1.0</outer_angle>
+        <falloff>3.0</falloff>
+      </spot>
+    </light>
+    
+<rendering:ogre>
+<ambient>0.5 0.5 0.5 0.5</ambient>
+<sky>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>circus_arena_2k.hdr</name>
+            </script>
+            <specular>0 0 0 0</specular>
+          </material>
+          </sky>
+<grid>false</grid>
+<maxUpdateRate>10.</maxUpdateRate>
+<shadowTechnique>none</shadowTechnique>
+<shadows>false</shadows>
+
+</rendering:ogre>
+    
+    <model name='Tile/0-0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-9.92261333537358 -1.3519999999999999 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/0-1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/3058e171fbb32d5e1efde9382a6ab1991b2fd43bcbd21fa34add7239901b9db2</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-9.92261333537358 2.744 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/0-2'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-9.92261333537358 6.84 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/1-0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-5.82661333537358 -1.3519999999999999 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/1-1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/4c5a49df8fd762b76fb459d4d238a3ee13ff72d47765e623aa75a18cee1df7df</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-5.82661333537358 2.744 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/1-2'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-5.82661333537358 6.84 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/2-0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/f150baf138048eb72484f1afb8df42c5c4e9975beeeb2417d98e699c629234ad</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-1.7306133353735795 -1.3519999999999999 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/2-1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/b54a11ff863b796688012f43434184bd6d4ac46fb7ed48b3a442a526f63d4a6c</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-1.7306133353735795 2.744 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/2-2'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/c6e2d9a1d4cde8a86fcd04b97fafd59f5cc725bedb86ecbc7dd504d659f863ee</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>-1.7306133353735795 6.84 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/3-0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/70cc846e9450f9366264f8869df33c7098ea8c794df6a8131c5871fa362cb7ed</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.3653866646264206 -1.3519999999999999 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/3-1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/8f0dc65dcc5c14dfe671c2232e8317c20b4003c43f72e253f356f853e74f4e5f</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.3653866646264206 2.744 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/3-2'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>2.3653866646264206 6.84 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/4-0'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/c88990776df101bf2c237ff6f0fd806e439bd97adb8dfdd77143a78dbd248c2c</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>6.461386664626419 -1.3519999999999999 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/4-1'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/f1b3b57abc3193dd96c348fb5f4527eb8d7a8468e07ffc149022038b1c2cff34</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>6.461386664626419 2.744 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Tile/4-2'>
+      <static>1</static>
+      <link name='link'>
+        <collision name='collision'>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <surface>
+            <friction>
+              <ode>
+                <mu>100</mu>
+                <mu2>50</mu2>
+              </ode>
+              <torsional>
+                <ode/>
+              </torsional>
+            </friction>
+            <contact>
+              <ode/>
+            </contact>
+            <bounce/>
+          </surface>
+          <max_contacts>10</max_contacts>
+        </collision>
+        <visual name='visual'>
+          <cast_shadows>0</cast_shadows>
+          <geometry>
+            <plane>
+              <normal>0 0 1</normal>
+              <size>4.096 4.096</size>
+            </plane>
+          </geometry>
+          <material>
+            <script>
+              <uri>file://materials/scripts</uri>
+              <uri>file://materials/textures</uri>
+              <name>Tile/5eab350b8220ac9944dbdfa4ac3288c7c17e24c3bf5df0dfcf6173d64dae00a1</name>
+            </script>
+            <specular>1 1 1 1</specular>
+          </material>
+        </visual>
+        <self_collide>0</self_collide>
+        <enable_wind>0</enable_wind>
+        <kinematic>0</kinematic>
+      </link>
+      <pose frame=''>6.461386664626419 6.84 0 0 -0 0</pose>
+    </model>
+    
+    <model name='Sign-Sign/-17'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Links_abbiegen.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>3.5202795795510773 0.2332738110421968 0.0 0 0 3.9269908169872414</pose>
+    </model>
+    
+    <model name='Sign-Sign/-20'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Rechts_abbiegen.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>2.81317279836453 1.1525126265847085 0.0 0 0 2.356194490192345</pose>
+    </model>
+    
+    <model name='Sign-Sign/-21'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Vorfahrt.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>3.3435028842544403 0.05649711574555982 0.0 0 0 3.9269908169872414</pose>
+    </model>
+    
+    <model name='Sign-Sign/-22'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Vorfahrt.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>3.909188309203678 2.0363961030678928 0.0 0 0 0.7853981633974483</pose>
+    </model>
+    
+    <model name='Sign-Sign/-23'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Vorfahrt.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>4.616295090390226 0.7636038969321075 0.0 0 0 -0.7853981633974483</pose>
+    </model>
+    
+    <model name='Sign-Sign/-24'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Vorfahrt.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>2.6363961030678924 1.3292893218813453 0.0 0 0 2.356194490192345</pose>
+    </model>
+    
+    <model name='Sign-Sign/-41'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Vorfahrt.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>-0.12132034355964272 4.714213562373096 0.0 0 0 6.283185307179586</pose>
+    </model>
+    
+    <model name='Sign-Sign/-42'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Vorfahrt.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>-1.9213203435596427 3.7142135623730956 0.0 0 0 3.141592653589793</pose>
+    </model>
+    
+    <model name='Sign-Sign/-43'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Vorfahrt.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>-1.5213203435596427 5.114213562373096 0.0 0 0 1.5707963267948966</pose>
+    </model>
+    
+    <model name='Sign-Sign/-44'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Vorfahrt.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>-0.5213203435596427 3.3142135623730957 0.0 0 0 4.71238898038469</pose>
+    </model>
+    
+    <model name='Sign-Sign/-55'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/VorbeifahrtRechts_pedestrian.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.075 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.15</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>-2.371320343559643 4.214213562373096 0.0 0 0 1.5707963267948966</pose>
+    </model>
+    
+    <model name='Sign-Sign/-56'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/VorbeifahrtRechts_pedestrian.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.075 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.15</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>-3.8713203435596424 4.214213562373096 0.0 0 0 4.71238898038469</pose>
+    </model>
+    
+    <model name='Sign-Sign/-73'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Vorfahrt.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>-7.064823227814083 4.157716446627536 0.0 0 0 0.7853981633974483</pose>
+    </model>
+    
+    <model name='Sign-Sign/-74'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Vorfahrt.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>-7.63050865276332 2.1778174593052024 0.0 0 0 -2.356194490192345</pose>
+    </model>
+    
+    <model name='Sign-Sign/-75'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Vorfahrt.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>-8.337615433949868 3.450609665440988 0.0 0 0 -3.9269908169872414</pose>
+    </model>
+    
+    <model name='Sign-Sign/-76'>
+      <link name='link'>
+        <visual name='visual'>
+          <cast_shadows>1</cast_shadows>
+          <geometry>
+            <mesh>
+                <uri>file://meshes/Vorfahrt.dae</uri>
+                <scale>0.001 0.001 0.001</scale>
+            </mesh>
+          </geometry>
+        </visual>
+        <collision name='collision'>
+            <pose>-0.055 0 0.145 0 0 0</pose>
+            <geometry>
+                <box>
+                  <size>0.11 0.15 0.29</size>
+                </box>
+            </geometry>
+        </collision>
+        <self_collide>0</self_collide>
+      </link>
+      <pose frame=''>-6.357716446627535 2.8849242404917503 0.0 0 0 -0.7853981633974483</pose>
+    </model>
+    </world></sdf>

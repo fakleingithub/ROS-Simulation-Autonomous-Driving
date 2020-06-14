@@ -1,0 +1,20 @@
+<launch>
+	<!-- open gazebo world -->
+	<include file="$(find gazebo_ros)/launch/empty_world.launch">
+		<arg name="verbose" value="true"/>
+		<arg name="world_name" value="$(find carolo)/worlds/carolo.world"/>
+	</include>
+
+	<!-- connect rviz coordinate system with coordinate system from urdf model -->
+	<node pkg="robot_state_publisher" type="robot_state_publisher" name="robot_state_publisher"/>
+	<node pkg="tf2_ros" type="static_transform_publisher" name="create_odom" args="0 0 0 0 0 0 odom base_link"/>
+
+	<!-- spawn urdf model in world -->
+	<param name="robot_description" command="$(find xacro)/xacro --inorder '$(find carolo)/urdf/itmoves_car.urdf'" />
+	<node name="spawn_urdf" pkg="gazebo_ros" type="spawn_model" args="-param robot_description -urdf -x -2 -y -0.4 -z 0.033 -R 0 -P 0 -Y 2.63881898038 -model itmoves_car_spawn"/>
+
+	<!-- open rviz config -->
+	<arg name="rvizconfig" default="$(find carolo)/rviz/carolo.rviz"/>
+	<node name="rviz" pkg="rviz" type="rviz" args="-d $(arg rvizconfig)" required="true"/>
+	
+</launch>

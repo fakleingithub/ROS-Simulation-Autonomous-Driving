@@ -1,0 +1,12 @@
+lxml
+numpy
+cairocffi==0.6
+tqdm
+matplotlib
+shapely
+pyxb
+scipy
+# according to installation instructions here: https://pygobject.readthedocs.io/en/latest/getting_started.html
+# this also requires the following apt packages:
+# libgirepository1.0-dev gcc libcairo2-dev pkg-config python3-dev gir1.2-gtk-3.0
+PyGObject

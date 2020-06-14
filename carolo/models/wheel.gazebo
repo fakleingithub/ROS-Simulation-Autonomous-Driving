@@ -1,0 +1,27 @@
+<?xml version="1.0"?>
+<robot name="wheels" xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:macro name="wheel" params="wheel_name">
+    <link name="${wheel_name}">
+      <gravity>0</gravity>
+      <inertial>
+        <mass value="11"/>
+        <origin xyz="0 0 0"/>
+        <inertia ixx="0.58631238" ixy="0.0" ixz="0.0" iyy="0.33552910" iyz="0.0" izz="0.33552910"/>
+      </inertial>
+      <collision name="${wheel_name}_collision">
+        <origin rpy="0  0  0" xyz="0  0  0"/>
+        <geometry>
+          <cylinder length="0.026" radius="0.033"/>
+        </geometry>
+      </collision>
+      <visual name="${wheel_name}_visual">
+        <origin rpy="3.14159  1.57079  3.14159" xyz="0  0  0"/>
+        <geometry>
+          <mesh filename="package://carolo/meshes/wheel.obj" scale="0.0009 0.0010555 0.0010555"/>
+        </geometry>
+      </visual>
+    </link>
+  </xacro:macro>
+  
+</robot>

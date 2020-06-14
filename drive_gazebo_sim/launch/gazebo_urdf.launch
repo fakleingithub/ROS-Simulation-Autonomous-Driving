@@ -1,0 +1,67 @@
+<launch>
+
+  <!-- these are the arguments you can pass this launch file, for example paused:=true -->
+  <arg name="paused" default="false"/>
+  <arg name="use_sim_time" default="true"/>
+  <arg name="gui" default="true"/>
+  <arg name="headless" default="false"/>
+  <arg name="debug" default="false"/>
+  <arg name="controller_tuning" default="false"/>
+  <arg name="joint_state_topic" default="/cc2019_car/joint_states"/>
+
+  <!-- We resume the logic in empty_world.launch, changing only the name of the world to be launched -->
+  <group if="$(arg controller_tuning)">
+      <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="debug" value="$(arg debug)" />
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+        <arg name="world_name" value="worlds/empty_world_no_friction.world"/>
+      </include>
+  </group>
+  <group unless="$(arg controller_tuning)">
+      <include file="$(find gazebo_ros)/launch/empty_world.launch">
+        <arg name="debug" value="$(arg debug)" />
+        <arg name="gui" value="$(arg gui)" />
+        <arg name="paused" value="$(arg paused)"/>
+        <arg name="use_sim_time" value="$(arg use_sim_time)"/>
+        <arg name="headless" value="$(arg headless)"/>
+        <arg name="world_name" value="$(find drive_gazebo_worlds)/worlds/world.sdf"/>
+      </include>
+  </group>
+
+  <!-- Load the URDF into the ROS Parameter Server -->
+  <param name="robot_description"
+    command="$(find xacro)/xacro --inorder '$(find drive_gazebo_sim)/urdf/cc2019.xacro'" />
+
+  <!-- Run a python script to the send a service call to gazebo_ros to spawn a URDF robot -->
+  <node name="urdf_spawner" pkg="gazebo_ros" type="spawn_model" respawn="false" output="screen"
+    args="-urdf  -model cc_2019_car -param robot_description  -y -0.2"/>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find drive_gazebo_sim)/config/cc2019_car_control.yaml" command="load"/>
+
+  <!-- load the controllers -->
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="true"
+    output="screen" ns="/cc2019_car"
+    args="
+    front_left_steering_controller
+    front_right_steering_controller
+    rear_left_steering_controller
+    rear_right_steering_controller
+    front_left_velocity_controller
+    front_right_velocity_controller
+    rear_left_velocity_controller
+    rear_right_velocity_controller
+    joint_state_controller" />
+
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+    respawn="false" output="screen">
+    <remap from="/joint_states" to="$(arg joint_state_topic)" />
+  </node>
+  <node name="joint_state_publisher" pkg="joint_state_publisher" type="joint_state_publisher" >
+    <remap from="/joint_states" to="$(arg joint_state_topic)" />
+  </node>
+
+</launch>

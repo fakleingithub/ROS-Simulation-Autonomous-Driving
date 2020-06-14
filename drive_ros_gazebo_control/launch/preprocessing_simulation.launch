@@ -1,0 +1,6 @@
+<launch>
+    <node name="preprocessing_simulation_publisher" pkg="drive_ros_gazebo_control" type="preprocessing_simulation.py" args="-p $(find drive_ros_gazebo_control)/scripts/camcal-simulation.json" respawn="false" output="screen">
+    </node>
+    <node name="visualization_simulation_publisher" pkg="drive_ros_gazebo_control" type="visualization_simulation.py" args="-p $(find drive_ros_gazebo_control)/scripts/camcal-simulation.json" respawn="false" output="screen">
+    </node>
+</launch>

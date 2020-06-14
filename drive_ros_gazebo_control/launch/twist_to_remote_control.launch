@@ -1,0 +1,13 @@
+<launch>
+    <arg name="twist_topic" default="/twist_cmd"/>
+    <arg name="transverse_steering_topic" default="/Transverse_Control/Steering"/>
+    <arg name="transverse_velocity_topic" default="/Transverse_Control/Velocity"/>
+    <arg name="remote_control_topic" default="/gazebo_drive_command_in"/>
+
+    <node name="twist_to_remote_control_publisher" pkg="drive_ros_gazebo_control" type="gazebo_ros_twist_to_remote_control_node" respawn="false" output="screen">
+        <remap from="/twist_in" to="$(arg twist_topic)"/>
+        <remap from="/transverse_steering_in" to="$(arg transverse_steering_topic)"/>
+        <remap from="/transverse_velocity_in" to="$(arg transverse_velocity_topic)"/>
+        <remap from="/remote_control_out" to="$(arg remote_control_topic)"/>
+    </node>
+</launch> 

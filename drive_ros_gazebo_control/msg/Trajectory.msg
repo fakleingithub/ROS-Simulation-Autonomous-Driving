@@ -1,0 +1,14 @@
+Header header
+float64[] x
+float64[] y
+float64[] angle
+float64[] curvature
+float64[] speed
+float64 stopline_distance
+float64 stopline_x_coordinate
+float64 stopline_y_coordinate
+float64 stopline_angle_to_vertical
+float64 startline_distance
+float64 startline_x_coordinate
+float64 startline_y_coordinate
+float64 startline_angle_to_vertical

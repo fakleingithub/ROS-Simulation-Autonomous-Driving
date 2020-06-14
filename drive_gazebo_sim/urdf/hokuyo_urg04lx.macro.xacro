@@ -1,0 +1,41 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+    <xacro:macro name="sensor_hokuyo_urg04lx" params="name parent xyz rpy" >
+        <!-- Mechanics and visuals -->
+        <xacro:include filename="$(find drive_gazebo_sim)/urdf/hokuyo_urg04lx_mechanical.macro.xacro"/>
+        <hokuyo_urg04lx_mechanical name="${name}" parent="${parent}" xyz="${xyz}" rpy="${rpy}"/>
+
+        <gazebo reference="${name}">
+            <sensor name="${name}" type="ray">
+                <pose>0 0 0 0 0 0</pose>
+                  <ray>
+                    <scan>
+                      <horizontal>
+                        <!-- The URG-04LX-UG01 has 683 steps with 0.35139 Degree resolution -->
+                        <resolution>1</resolution>
+                        <max_angle>2.0944</max_angle> <!-- 120 Degrees -->
+                        <min_angle>-2.0944</min_angle> <!-- -120 Degrees -->
+                        <samples>683</samples>
+                      </horizontal>
+                    </scan>
+                    <range>
+                      <!-- range is artificially increased in order to prevent the sensor from self-colliding, actually 2cm -->
+                      <min>0.05</min>
+                      <max>5.6</max>
+                      <resolution>0.01</resolution>
+                    </range>
+                  </ray>
+
+                  <plugin name="laser" filename="libgazebo_ros_laser.so" >
+                    <robotNamespace></robotNamespace>
+                    <topicName>${name}/scan</topicName>
+                    <frameName>${name}</frameName>
+                  </plugin>
+
+                  <always_on>true</always_on>
+                  <update_rate>10</update_rate>
+                  <visualize>false</visualize>
+            </sensor>
+        </gazebo>
+    </xacro:macro>
+</robot>

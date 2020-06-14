@@ -1,0 +1,81 @@
+<?xml version="1.0"?>
+<robot xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+<!-- Ximea MQ013MG-ON with Theia SY110M lens -->
+<xacro:macro name="sensor_ximea_MQ013MG-ON_SY110" params="name parent xyz rpy">
+    <link name="${name}">
+      <collision>
+        <origin xyz="-0.037 0 0" rpy="0 ${-PI/2} 0"/>
+        <geometry>
+          <cylinder radius="0.0175" length="0.077"/>
+        </geometry>
+      </collision>
+      <visual>
+        <origin xyz="0.037 0 0" rpy="0 0 0"/>
+        <geometry>
+          <mesh filename="package://drive_gazebo_sim/meshes/ximea_MQ013MG-ON_SY110.dae" scale="1 1 1"/>
+        </geometry>
+      </visual>
+      <inertial>
+        <!-- MQ013MG-ON sensor + SY110 lens -->
+        <mass value="${0.026+0.070}" />
+        <origin xyz="0 0 0" rpy="0 0 0"/>
+        <!-- inertia values are approximate but should be close enough -->
+        <inertia ixx="0.0009728102" ixy="0.0000950064" ixz="0.0000154579" iyy="0.0001061" iyz="-7.4781e-7" izz="0.0001062" />
+      </inertial>
+    </link>
+
+  <joint name="${parent}_${name}_joint" type="fixed">
+      <axis xyz="0 0 1" />
+      <origin xyz="${xyz}" rpy="${rpy}"/>
+      <parent link="${parent}"/>
+      <child link="${name}"/>
+    </joint>
+
+ <!-- camera sensor -->
+ <gazebo reference="${name}">
+   <sensor type="camera" name="${name}">
+     <update_rate>30.0</update_rate>
+     <camera name="head">
+       <!-- 120 degrees with SY110M lens and the 1/2'' sensor of the MQ013MG-ON -->
+       <horizontal_fov>${PI*120/180}</horizontal_fov>
+       <image>
+         <!-- we run our camera at this resolution -->
+         <width>1280</width> 
+         <height>960</height> <!--phoenix robotics: 344 -->
+         <format>L8</format>
+<!--         <format>R8G8B8</format>-->
+       </image>
+       <clip>
+         <near>0.05</near>
+         <far>300</far>
+       </clip>
+       <noise>
+         <type>gaussian</type>
+         <!-- Noise is sampled independently per pixel on each frame.
+              That pixel's noise value is added to each of its color
+              channels, which at that point lie in the range [0,1]. -->
+         <mean>0.0</mean>
+         <stddev>0.007</stddev>
+       </noise>
+     </camera>
+     <plugin name="camera_controller" filename="libgazebo_ros_camera.so">
+       <alwaysOn>true</alwaysOn>
+       <updateRate>60.0</updateRate>
+       <cameraName>camera</cameraName>
+       <imageTopicName>image_raw</imageTopicName>
+       <cameraInfoTopicName>camera_info</cameraInfoTopicName>
+       <frameName>${name}</frameName>
+       <!-- we do not undistort the ximea camera -->
+       <distortionK1>0.0</distortionK1>
+       <distortionK2>0.0</distortionK2>
+       <distortionK3>0.0</distortionK3>
+       <distortionT1>0.0</distortionT1>
+       <distortionT2>0.0</distortionT2>
+     </plugin>
+     <visualize>1</visualize>
+   </sensor>
+ </gazebo>
+</xacro:macro>
+
+</robot>

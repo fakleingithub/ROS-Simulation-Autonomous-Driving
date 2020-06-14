@@ -1,0 +1,18 @@
+<launch>
+    <arg name="joint_state_topic" default="/cc2019_car/joint_states"/>
+    <arg name="model_state_topic" default="/gazebo/model_states"/>
+    <arg name="drive_state_topic" default="/canros/msg/phoenix_msgs/DriveState"/>
+    <arg name="front_steer_joint_name" default="chassis_to_front_left_steer"/>
+    <arg name="rear_steer_joint_name" default="chassis_to_rear_left_steer"/>
+    <arg name="car_model_name" default="cc_2019_car"/>
+
+    <node name="gazebo_drive_state_publisher" pkg="drive_ros_gazebo_control" type="gazebo_ros_drive_state_publisher_node" respawn="false" output="screen">
+        <remap from="joint_state_in" to="$(arg joint_state_topic)"/>
+        <remap from="model_state_in" to="$(arg model_state_topic)"/>
+        <remap from="drive_state_out" to="$(arg drive_state_topic)"/>
+
+        <param name="front_steer_joint_name" type="str" value="$(arg front_steer_joint_name)" />
+        <param name="rear_steer_joint_name" type="str" value="$(arg rear_steer_joint_name)" />
+        <param name="car_model_name" type="str" value="$(arg car_model_name)" />
+    </node>
+</launch>

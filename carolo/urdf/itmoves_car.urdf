@@ -1,0 +1,190 @@
+<?xml version="1.0" ?>
+ <robot name="itmoves_car"  xmlns:xacro="http://www.ros.org/wiki/xacro">
+
+  <xacro:include filename="$(find carolo)/models/lidar.gazebo"/>
+  <xacro:include filename="$(find carolo)/models/camera.gazebo"/>
+  <xacro:include filename="$(find carolo)/models/wheel.gazebo"/>
+
+  <link name="base_link">
+    <inertial>
+      <mass value="1"/>
+      <inertia ixx="0.001" ixy="0.0" ixz="0.0" iyy="0.001" iyz="0.0" izz="0.001"/>
+    </inertial>
+  </link>
+
+  <link name="chassis">
+    <inertial>
+      <mass value="2.605"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0" ixy="0" ixz="0" iyy="0" iyz="0" izz="0"/>
+    </inertial>
+    <collision name="chassis_collision">
+      <origin rpy="0  0  0" xyz="-0.1175  0      0"/>
+      <geometry>
+        <box size="0.235 0.138 0.01"/>
+      </geometry>
+    </collision>
+    <visual name="chassis_visual">
+      <origin rpy="0  0  0" xyz="-0.1175  0      0"/>
+      <geometry>
+        <box size="0.235 0.138 0.01"/>
+      </geometry>
+    </visual>
+  </link>
+
+ 	<link name="axle_fl">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>  
+    <visual name="axle_fl_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+
+  <link name="axle_fr">
+    <inertial>
+      <mass value="1"/>
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <inertia ixx="0.166667" ixy="0" ixz="0" iyy="0.166667" iyz="0" izz="0.166667"/>
+    </inertial>    
+    <visual name="axle_fr_visual">
+      <origin rpy="0  0  0" xyz="0  0  0"/>
+      <geometry>
+        <box size="0.001 0.001 0.001"/>
+      </geometry>
+    </visual>
+  </link>
+  
+  <xacro:wheel wheel_name="wheel_fl"/>
+  <xacro:wheel wheel_name="wheel_fr"/>
+  <xacro:wheel wheel_name="wheel_rl"/>
+  <xacro:wheel wheel_name="wheel_rr"/>
+ 
+  <gazebo>
+    <plugin name="joint_state_publisher" filename="libgazebo_ros_joint_state_publisher.so">
+      <jointName>joint_wheel_fl, joint_wheel_fr, joint_wheel_rl, joint_wheel_rr, joint_axle_fl, joint_axle_fr</jointName>
+      <updateRate>100.0</updateRate>
+      <alwaysOn>true</alwaysOn>
+    </plugin>
+  </gazebo>
+
+  <gazebo reference="wheel_fl">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+    <minDepth>0.005</minDepth>
+    <kp>1e8</kp>
+  </gazebo>
+
+  <gazebo reference="wheel_fr">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+    <minDepth>0.005</minDepth>
+    <kp>1e8</kp>
+  </gazebo>
+
+  <gazebo reference="wheel_rl">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+    <minDepth>0.005</minDepth>
+    <kp>1e8</kp>
+  </gazebo>
+
+  <gazebo reference="wheel_rr">
+    <mu1>0.9</mu1>
+    <mu2>0.9</mu2>
+    <minDepth>0.005</minDepth>
+    <kp>1e8</kp>
+  </gazebo> 
+
+  <joint name="joint_base_link" type="fixed">
+    <parent link="base_link"/>
+    <child link="chassis"/>
+    <origin xyz="0 0 0" rpy="0 0 0"/>
+    <axis xyz="1 0 0"/>
+  </joint>
+
+  <joint name="joint_wheel_fl" type="continuous">
+    <parent link="axle_fl"/>
+    <child link="wheel_fl"/>
+       <origin rpy="1.5708  0      0" xyz="0     0.007  0"/>
+   	<axis xyz="0  1  0"/>
+		<dynamics damping="0.0" friction="0.1"/>
+    <limit effort="0.0" lower="-0.8727" upper="0.8727" velocity="0.0"/>
+  </joint>
+
+  <joint name="joint_wheel_fr" type="continuous">
+    <parent link="axle_fr"/>
+    <child link="wheel_fr"/>
+    <origin rpy="1.5708  0      0" xyz="0    -0.007  0"/>
+    <axis xyz="0  1  0"/>
+   	<dynamics damping="0.0" friction="0.1"/>
+    <limit effort="0.0" lower="-0.8727" upper="0.8727" velocity="0.0"/>  
+  </joint>
+
+  <joint name="joint_wheel_rl" type="continuous">
+    <parent link="chassis"/>
+    <child link="wheel_rl"/>
+    <origin rpy="1.57079  0       0" xyz="-0.235  0.082  0"/>
+    <axis xyz="1 0 0"/>
+   	<dynamics damping="0.0" friction="0.1"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <joint name="joint_wheel_rr" type="continuous">
+    <parent link="chassis"/>
+    <child link="wheel_rr"/>
+    <origin rpy="1.57079  0       0" xyz="-0.235 -0.082  0"/>
+    <axis xyz="1 0 0"/>
+   	<dynamics damping="0.0" friction="0.1"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <joint name="joint_axle_fl" type="continuous">
+    <parent link="chassis"/>
+    <child link="axle_fl"/>
+    <origin rpy="0  0  0" xyz="0     0.075  0"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="-1.0" lower="-0.8727" upper="0.8727" velocity="-1.0"/>
+  </joint>
+
+  <joint name="joint_axle_fr" type="continuous">
+    <parent link="chassis"/>
+    <child link="axle_fr"/>
+   	<origin rpy="0  0  0" xyz="0    -0.075  0"/>
+    <axis xyz="0  0  1"/>
+    <limit effort="-1.0" lower="-0.8727" upper="0.8727" velocity="-1.0"/>
+  </joint>
+
+  <joint name="joint_lidar" type="fixed">
+    <parent link="chassis"/>
+    <child link="lidar"/>
+    <origin rpy="0  0  0" xyz="0.065   0.026   0.0085"/>
+    <axis xyz="0  0  0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <joint name="joint_camera" type="fixed">
+    <parent link="chassis"/>
+    <child link="camera"/>
+    <origin rpy="0  1.571  0" xyz="0.98   0   0.293"/>
+    <axis xyz="0  0  0"/>
+    <limit effort="0" lower="0" upper="0" velocity="0"/>
+  </joint>
+
+  <gazebo reference="joint_base_link">
+    <disableFixedJointLumping>true</disableFixedJointLumping>
+  </gazebo>
+  
+  <gazebo>
+    <plugin name="itmoves_car_plugin" filename="libitmoves_car_plugin.so">
+      <chassis>chassis</chassis>
+    </plugin>
+  </gazebo>
+  
+
+</robot>

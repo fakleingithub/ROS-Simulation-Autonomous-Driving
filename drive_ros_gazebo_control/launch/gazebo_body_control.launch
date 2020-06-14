@@ -1,0 +1,34 @@
+<launch>
+    <arg name="manual" default="true"/>
+    <arg name="front_left_steering_out" default="/cc2019_car/front_left_steering_controller/command"/>
+    <arg name="front_left_velocity_out" default="/cc2019_car/front_left_velocity_controller/command"/>
+    <arg name="front_right_steering_out" default="/cc2019_car/front_right_steering_controller/command"/>
+    <arg name="front_right_velocity_out" default="/cc2019_car/front_right_velocity_controller/command"/>
+    <arg name="rear_left_steering_out" default="/cc2019_car/rear_left_steering_controller/command"/>
+    <arg name="rear_left_velocity_out" default="/cc2019_car/rear_left_velocity_controller/command"/>
+    <arg name="rear_right_steering_out" default="/cc2019_car/rear_right_steering_controller/command"/>
+    <arg name="rear_right_velocity_out" default="/cc2019_car/rear_right_velocity_controller/command"/>
+
+    <arg name="canrc" default="/CAN/RC_Mode"/>
+    <arg name="command_in" default="/gazebo_drive_command_in"/>
+    <arg name="command_in_autonomous" default="/gazebo_drive_command_in_autonomous"/>
+    <arg name="vel_amplification_factor" default="20"/>
+
+    <node name="ros_gazebo_control" pkg="drive_ros_gazebo_control" type="gazebo_ros_body_control_node" respawn="false" output="screen">
+        <remap from="front_left_steering_out" to="$(arg front_left_steering_out)"/>
+        <remap from="front_left_velocity_out" to="$(arg front_left_velocity_out)"/>
+        <remap from="front_right_steering_out" to="$(arg front_right_steering_out)"/>
+        <remap from="front_right_velocity_out" to="$(arg front_right_velocity_out)"/>
+        <remap from="rear_left_steering_out" to="$(arg rear_left_steering_out)"/>
+        <remap from="rear_left_velocity_out" to="$(arg rear_left_velocity_out)"/>
+        <remap from="rear_right_steering_out" to="$(arg rear_right_steering_out)"/>
+        <remap from="rear_right_velocity_out" to="$(arg rear_right_velocity_out)"/>
+
+        <remap from="canrc" to="$(arg canrc)"/>
+        <remap from="command_in" to="$(arg command_in)"/>
+        <remap from="command_in_autonomous" to="$(arg command_in_autonomous)"/>
+
+        <param name="manual" type="bool" value="$(arg manual)" />
+        <param name="vel_amplification_factor" type="double" value="$(arg vel_amplification_factor)" />
+    </node>
+</launch>

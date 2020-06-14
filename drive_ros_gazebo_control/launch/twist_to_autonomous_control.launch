@@ -1,0 +1,9 @@
+<launch>
+    <arg name="twist_topic" default="/Transverse_Control/Drive_cmd"/>
+    <arg name="autonomous_control_topic" default="/gazebo_drive_command_in_autonomous"/>
+
+    <node name="twist_to_autonomous_control_publisher" pkg="drive_ros_gazebo_control" type="gazebo_ros_twist_to_autonomous_control_node" respawn="false" output="screen">
+        <remap from="/twist_in_autonomous" to="$(arg twist_topic)"/>
+        <remap from="/autonomous_control_out" to="$(arg autonomous_control_topic)"/>
+    </node>
+</launch> 

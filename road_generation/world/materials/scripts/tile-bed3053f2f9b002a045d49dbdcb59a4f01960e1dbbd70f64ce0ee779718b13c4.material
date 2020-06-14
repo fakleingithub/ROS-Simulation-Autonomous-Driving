@@ -1,0 +1,17 @@
+
+    material Tile/bed3053f2f9b002a045d49dbdcb59a4f01960e1dbbd70f64ce0ee779718b13c4
+    {
+        technique
+        {
+            pass
+            {
+                texture_unit
+                {
+                    texture tile-bed3053f2f9b002a045d49dbdcb59a4f01960e1dbbd70f64ce0ee779718b13c4.png PF_L8
+                    filtering anisotropic
+                    max_anisotropy 16
+                }
+            }
+        }
+    }
+    

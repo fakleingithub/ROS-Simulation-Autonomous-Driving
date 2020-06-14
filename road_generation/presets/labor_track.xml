@@ -1,0 +1,22 @@
+<template>
+    <sequence>
+        <line length="5" isStart="true" />
+	<leftArc radius="1" angle="85" />
+	<line length="2.5" />
+	<leftArc radius="1" angle="85" />
+	<line length="1.5" />
+	<leftArc radius="1.75" angle="55" />
+	<intersection turn="straight" rule="stop" />
+	<leftArc radius="1" angle="135" />
+	<line length="2.5" />
+	<leftArc radius="0.8" angle="210" />
+	<line length="0.2" />
+	<rightArc radius="1" angle="75" />
+	<line length="0.3" />
+	<line length="1.7" rightLine="missing" leftLine="missing" middleLine="missing"/>
+	<line length="1" />
+	<leftArc radius="0.8" angle="135" />
+	<line length="3.375" />
+	<leftArc radius="1" angle="90" />
+    </sequence>
+</template>
